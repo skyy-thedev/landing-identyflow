@@ -327,8 +327,8 @@ ul, ol {
 }
 
 .logo-icon svg {
-    width: 100%;
-    height: 100%;
+    width: 40%;
+    height: 40%;
 }
 
 .logo-text {
@@ -438,17 +438,20 @@ ul, ol {
 .nav-menu.active {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
-    bottom: 0;
     background: var(--white);
-    padding: var(--space-8);
+    padding: var(--space-8) var(--space-4) var(--space-4) var(--space-4);
     gap: var(--space-4);
     animation: slideIn var(--transition-base) ease;
     z-index: 999;
-    overflow-y: auto;
+    min-height: calc(100vh - var(--header-height));
+    max-height: none;
+    overflow-y: visible;
 }
 
 @keyframes slideIn {
@@ -480,13 +483,19 @@ ul, ol {
     width: 100%;
 }
 
+
 .nav-buttons.mobile-visible {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    margin-top: var(--space-8);
-    padding-top: var(--space-6);
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
     border-top: 1px solid var(--neutral-gray);
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    position: static;
+    z-index: auto;
 }
 
 .nav-buttons.mobile-visible .btn {
@@ -511,7 +520,7 @@ ul, ol {
     
     .nav-menu.active {
         position: static;
-        flex-direction: row;
+        flex-direction: row-reverse;
         padding: 0;
         animation: none;
     }
